@@ -2,13 +2,13 @@
 
 namespace check
 {
+	
 	template<typename T, typename T1>
 	struct is_operator
 	{
 		const static  bool value = false;
 	};
-
-
+	
 	template<typename T>
 	struct is_operator<T, decltype(*static_cast<std::ostream*>(nullptr) << *static_cast<T*>(nullptr))>
 	{
