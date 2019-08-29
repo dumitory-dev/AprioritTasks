@@ -30,8 +30,7 @@ int main(void) noexcept
 {
 	try
 	{
-
-		
+			
 		const std::string str = "http://google.com.ru/ru  https://yandex.com.ru/en";
 		const auto res = parse_reference_full(str);
 		std::for_each(res.cbegin(),res.cend(),[](const auto & el)
