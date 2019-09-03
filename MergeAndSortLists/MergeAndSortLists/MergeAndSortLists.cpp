@@ -1,42 +1,34 @@
-﻿// MergeAndSortLists.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <list>
+#include <set>
 
-#include <iostream>
-
-
-struct a
+std::list<int> merge_and_sorted_list( std::list<int> const  & lst_first, std::list<int> const  & lst_second)
 {
-	 void f(){
+    std::set tree(lst_first.cbegin(),lst_first.cend());
+	tree.insert(lst_second.cbegin(),lst_second.cend());
 	
-	}
-};
-struct b1 : virtual a
-{
-	
-	void f()
-	{
-		
-	}
-
-};
-
-int main()
-{
-
-	a * a = new b1();
-	b1 * b = dynamic_cast<b1*>(a);
-	 //a->f(1);
-
-    std::cout << "Hello World!\n";
+	return {tree.cbegin(),tree.cend()};
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+int main(void) noexcept
+{
+	try
+	{
+		const std::list<int> ls{1,5,4};
+		const std::list<int> ls2{3,0,9};
+
+		auto res = merge_and_sorted_list(ls,ls2);
+
+		for (const auto &  element : res)
+		{
+			std::cout<<element<< " ";
+		}
+		return 0;
+	
+	}
+	catch (...)
+	{
+		return -1;
+	}
+}
