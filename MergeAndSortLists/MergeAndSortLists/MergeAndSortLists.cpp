@@ -10,7 +10,6 @@ std::list<int> merge_and_sorted_list( std::list<int> const  & lst_first, std::li
 	return {tree.cbegin(),tree.cend()};
 }
 
-
 int main(void) noexcept
 {
 	try
